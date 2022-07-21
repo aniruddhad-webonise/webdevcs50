@@ -1,0 +1,46 @@
+{% extends "personalprofile/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div id="viewpage">
+
+	<div id="homeview">
+		<a id="Linhmlink" href="https://www.linkedin.com/in/aniruddha-d-b839a611a/">LinkedIn</a>
+		<a id="GitHubhmlink" href="https://github.com/AniDas2403">GitHub</a>
+	
+		<h3 id="name">Aniruddha Das</h3>
+			
+		<img src="https://drive.google.com/uc?export=view&id=17zLL2FOluNvSm5EMs1U5oE8qIcJhOW7m" alt="profilepic" name="profilepic" id="profilepic"><br>
+		
+		<div id="announcements">
+			<h3>Announcements</h3>
+			<ul id="announcementitms">
+				<li class="announcementitem">Checkout my list of online certifications on my <a href="https://www.linkedin.com/in/aniruddha-d-b839a611a/">LinkedIn page</a>!</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="weview">
+	<h3>Work Experience</h3>
+	</div>
+	
+	<div id="projview">
+		Proj View
+	</div>
+	
+	<div id="courseview">
+		Course View
+	</div>
+	
+	<div id="blogview">
+		Blog View
+	</div>
+	
+	<div id="prev_nxt_btn">
+	</div>
+<div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'personalprofile/index.js' %}"></script>
+{% endblock %}

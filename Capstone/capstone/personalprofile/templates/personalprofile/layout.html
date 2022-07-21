@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Aniruddha - Profile{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'personalprofile/styles.css' %}" rel="stylesheet">
+		{% block script %}
+        {% endblock %}
+    </head>
+    <body>
+		
+		<div id="sidebar">
+			<div id="commonshortcuts">
+				<h6>My Common Shortcuts</h6>
+				<img src="https://dmxg5wxfqgb4u.cloudfront.net/styles/inline/s3/2019-01/NewBelt2.jpg?VersionId=U9PR_AQfDSRycs.mtwz9tCd0CNZEAg1o&itok=YnzMJmVH" alt="ufcshtortcut" class="shortcutpics" id="ufcshtortcut" onclick="window.location='https://www.ufc.com/';"> 
+				<img src="https://media-exp1.licdn.com/dms/image/C4D1BAQFC15xmdVH3XA/company-background_10000/0/1519801044073?e=2147483647&v=beta&t=56zlCS2sYj52KUmCz1oWsih1RJSXsfUWOQH2S2a9jMY" alt="toishtortcut" class="shortcutpics" id="toishtortcut" onclick="window.location='https://timesofindia.indiatimes.com/';">
+				<img src="https://www.thestatesman.com/wp-content/uploads/2019/06/statesman-logo-default-pic.jpg" alt="tsshtortcut" class="shortcutpics" id="tsshtortcut" onclick="window.location='https://www.thestatesman.com/';">
+				<img src="https://i.cbc.ca/1.4066392.1541713557!/fileImage/httpImage/cbc-logo-horizontal.jpg" alt="cbcshtortcut" class="shortcutpics" id="cbcshtortcut" onclick="window.location='https://www.cbc.ca/';">
+				<img src="https://ichef.bbci.co.uk/images/ic/1200x675/p07jbsw9.jpg" alt="bbcshtortcut" class="shortcutpics" id="bbcshtortcut" onclick="window.location='https://www.bbc.com/news';">
+				<img src="https://www.drupal.org/files/edx_logo.png" alt="edxshtortcut" class="shortcutpics" id="edxshtortcut" onclick="window.location='https://courses.edx.org/dashboard';">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/1200px-Coursera-Logo_600x600.svg.png" alt="courserashtortcut" class="shortcutpics" id="courserashtortcut" onclick="window.location='https://www.coursera.org/';">
+				<img src="https://bs-uploads.toptal.io/blackfish-uploads/uploaded_file/file/191428/image-1582300060923-b8b1c21533773f01e1ca133a12eab772.png" alt="tfshtortcut" class="shortcutpics" id="tfshtortcut" onclick="window.location='https://www.tensorflow.org/resources/learn-ml';">
+				<img src="https://miro.medium.com/max/1024/1*bQYZ7fp_wcjWFwpBbcRS-Q.png" alt="tfshtortcut" class="shortcutpics" id="tfshtortcut" onclick="window.location='https://www.kaggle.com/';">
+				<img src="https://media.comicbook.com/2017/11/ubisoft-1054464.jpg" alt="tfshtortcut" class="shortcutpics" id="tfshtortcut" onclick="window.location='https://www.ubisoft.com/en-us/';">
+			</div>
+			<a href="{% url 'index' %}" class="btn btn-outline-secondary idx_btns" role="button" aria-pressed="true">Home</a><br>
+			<p role="button" aria-pressed="true" id="we_btn" class="btn btn-outline-secondary idx_btns">Work Experience</p><br>
+			<p role="button" aria-pressed="true" id="proj_btn" class="btn btn-outline-secondary idx_btns">Projects</p><br>
+			<p role="button" aria-pressed="true" id="blog_btn" class="btn btn-outline-secondary idx_btns">Blogs</p><br>
+			{% if user.is_authenticated %}
+				<a href="{% url 'addpage_view' %}" class="btn btn-outline-secondary idx_btns" role="button" aria-pressed="true">Add</a><br>
+			{% endif %}
+			{% if user.is_authenticated %}
+				<a href="{% url 'logout' %}" class="btn btn-outline-danger log_btns" role="button" aria-pressed="true">Log Out</a>
+			{% endif %}
+			{% if not user.is_authenticated %}
+				<a href="{% url 'login' %}" class="btn btn-outline-success log_btns" role="button" aria-pressed="true">Log In</a>
+			{% endif %}
+			
+        </div>
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
+

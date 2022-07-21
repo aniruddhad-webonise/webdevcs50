@@ -1,0 +1,86 @@
+{% extends "personalprofile/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+	<div class="form_container">
+		<h3>Add Work Experience Here</h3>
+		<form id="workexpform" action="{% url 'addcontent' 'workexp' %}" method="post">
+			{% csrf_token %}
+			<div class="form-group">
+				<input class="form-control" type="text" name="workexp-title" id="workexp-title" placeholder="Enter Title here">
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" name="workexp-loc" id="workexp-loc" placeholder="Enter Location here">
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" name="workexp-duration" id="workexp-duration" placeholder="Enter Duration here">
+			</div>
+			<div class="form-group">
+				<textarea class="form-control" rows="3" type="text" name="workexp-desc" id="workexp-desc" placeholder="Enter Description here"></textarea>
+			</div>
+			<div class="form-group">
+				<textarea class="form-control" rows="3" type="text" name="workexp-mt" id="workexp-mt" placeholder="Major Takeaways"></textarea>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="url" name="workexp-url" id="workexp-url" placeholder="Enter Media Link here">
+			</div>
+			<input class="btn btn-primary" type="submit" value="Add">
+		</form>
+	</div>
+	
+	<div class="form_container">
+		<h3>Add Projects Here</h3>
+		<form id="projectsform" action="{% url 'addcontent' 'proj' %}" method="post">
+			{% csrf_token %}
+			<div class="form-group">
+				<input class="form-control" type="text" name="proj-title" id="proj-title" placeholder="Enter Title here">
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" name="proj-duration" id="proj-duration" placeholder="Enter Duration here">
+			</div>
+			<div class="form-group">
+				<textarea class="form-control" rows="3" type="text" name="proj-desc" id="proj-desc" placeholder="Enter Description here"></textarea>
+			</div>
+			<div class="form-group">
+				<textarea class="form-control" rows="3" type="text" name="proj-mt" id="proj-mt" placeholder="Major Takeaways"></textarea>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="url" name="proj-url" id="proj-url" placeholder="Enter Github Link here">
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="url" name="proj-img_url" id="proj-img_url" placeholder="Enter Image Link here">
+			</div>			
+			<input class="btn btn-primary" type="submit" value="Add">
+		</form>
+	</div>
+	
+	<div class="form_container">
+		<h3>Add Blogs Here</h3>
+		<form id="blogsform" action="{% url 'addcontent' 'blog' %}" method="post">
+			{% csrf_token %}
+			<div class="form-group">
+				<input class="form-control" type="text" name="blog-title" class="blog-title"s placeholder="Enter Title here">
+			</div>
+			<div class="form-group">
+				<textarea class="form-control" rows="3" type="text" name="blog-desc" id="blog-desc" placeholder="Enter Description here"></textarea>
+			</div>
+			<div class="form-group">
+				<textarea class="form-control" rows="6" type="text" name="blog-body" id="blog-body" placeholder="Enter Body here"></textarea>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="url" name="blog-img_url" id="blog-img_url" placeholder="Enter Image Link here">
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="url" name="blog-blogimg_url" id="blog-blogimg_url" placeholder="Enter Blog Image Link(s) here">
+			</div>
+			<input class="btn btn-primary" type="submit" value="Add">
+		</form>
+	</div>
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'personalprofile/addpage.js' %}"></script>
+{% endblock %}
