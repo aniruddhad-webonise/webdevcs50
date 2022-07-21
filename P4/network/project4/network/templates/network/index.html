@@ -1,0 +1,39 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+	<div id="disp">
+		
+        <div id="newpost">
+			<h3> New Post</h3>
+			<form id="newpostform" action="{% url 'newpost' %}" method="post">
+				{% csrf_token %}
+				<div class="form-group">
+					<input class="form-control" type="text" name="post-text" placeholder="Type here">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="url" name="postimg-url" placeholder="Paste Image URL here">
+				</div>
+				<input class="btn btn-primary" type="submit" value="Post">
+			</form>
+		</div>
+
+		<div id="allposts">
+		<h3>All Posts</h3>
+		</div>
+		
+		<div id="followedposts">
+		<h3 id="followedpoststitle"></h3>
+		</div>
+		
+		<div id="userpage">
+		</div>
+		
+		<div id="prev_nxt_btn">
+		</div>
+	</div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}

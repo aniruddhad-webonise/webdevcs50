@@ -1,0 +1,11 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<h2>{{u.username}}</h2>
+
+<button type="button" class="btn btn-outline-info">Following {{user_following}}</button>
+<button type="button" class="btn btn-outline-dark">Followed By {{user_followedby}}</button>
+
+
+{% endblock %}
+

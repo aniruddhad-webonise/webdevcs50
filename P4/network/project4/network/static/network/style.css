@@ -1,0 +1,47 @@
+#searchuser{
+	width: 40%;
+	border:2px solid black;
+	margin: 30px;
+	padding:3px
+}
+
+#newpost{
+	border:2px solid black;
+	margin: 30px;
+	padding:3px
+}
+
+#allposts{
+	border:2px solid black;
+	margin: 40px;
+	padding:3px
+}
+
+#followedposts{
+	border:2px solid black;
+	margin: 40px;
+	padding:3px
+}
+
+.postbox{
+	border:2px solid black;
+	margin: 40px;
+	padding:3px
+}
+
+.post_img{
+	width:40%;
+	margin: 1%
+}
+
+.post_time{
+	color: gray
+}
+
+.post_body{
+	font-size: 18px;
+}
+
+.post_editlink{
+	color: blue;
+}
