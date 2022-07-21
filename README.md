@@ -5,5 +5,5 @@
     <li>P2 - Auction Site simulator
     <li>P3 - Email simulator
     <li>P4 - Social Site simulator
-    <li>Capstone - personal profile website
+    <li>Capstone - personal profile website - website hosted at https://personalprofile-ad.herokuapp.com/ 
 </ul>
