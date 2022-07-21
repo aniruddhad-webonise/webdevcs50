@@ -1,0 +1,12 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Deleted Listings</h2>
+	
+	<div>
+		{% for deletedlisting in deletedlistings %}
+			Item <a href="{% url 'delitmdets' deletedlisting.title%}">{{ deletedlisting.title }}</a>
+		{% endfor %}
+	</div>
+	
+{% endblock %}

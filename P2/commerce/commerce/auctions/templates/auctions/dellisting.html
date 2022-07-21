@@ -1,0 +1,12 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h1>Listing: {{ dl.title }}</h1>
+	<ul>
+		<li>Owner: {{ dl.owner }}</li>
+		<li>Winning Price: ${{ dl.winningPrice }}</li>
+		{% if userIsWinner %}
+			<li>Won By: {{ dl.winner }}</li>
+		{% endif %}
+	</ul>
+{% endblock %}

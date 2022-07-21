@@ -1,0 +1,53 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h1>Listing: {{ listing.title }}</h1>
+	<ul>
+		<li>Descriptions: {{ listing.desc }}</li>
+		<li>Owner: {{ listing.owner }}</li>
+		<li>Category: {{ listing.category.category }}</li>
+		<li>Current Price: ${{ CurrentPrice }}</li>
+	</ul>
+		<img src={{ listing.pic_url }} alt="pic" width=30%/>
+	
+	{% if  not userisowner %}
+		Bid on item <a href="{% url 'bid' listing.title%}">here</a>.
+		{% if not inWatchlist %}
+			<form action="{% url 'watchlist' listing.title%}" method="post">
+				{% csrf_token %}
+				<input class="btn btn-primary" type="submit" value="Add to Watchlist">
+			</form>
+		{% else %}
+			<form action="{% url 'removewatchlistitem' listing.title%}" method="post">
+				{% csrf_token %}
+				<input class="btn btn-primary" type="submit" value="Remove from Watchlist">
+			</form>
+		{% endif %}
+	{% else %}
+		<form action="{% url 'deletelisting' listing.title%}" method="post">
+			{% csrf_token %}
+			<input class="btn btn-primary" type="submit" value="Delete Listing">
+		</form>
+	{% endif %}
+	
+	<div>
+		<form action="{% url 'addcomment' listing.title%}" method="post">
+			{% csrf_token %}
+			<div class="form-group">
+				<input class="form-control" autofocus type="text" name="comment" placeholder="Enter comments here">
+			</div>
+			<input class="btn btn-primary" type="submit" value="Submit Comment">
+		</form>
+	</div>
+	
+	<div>
+		<h2>Comments</h2>
+		{% for itemcomment in itemcomments %}
+			<li>User: {{itemcomment.user}}<br>
+			Comment: {{itemcomment.comment}}</br></li>
+		{% empty %}
+			<li>No Comments Added</li>
+		{% endfor %}
+			
+		<ul>
+{% endblock %}

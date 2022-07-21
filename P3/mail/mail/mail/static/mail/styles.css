@@ -1,0 +1,9 @@
+textarea {
+    min-height: 400px;
+}
+
+.emaillistbox {
+	border:2px solid black;
+	margin: 1px;
+	padding:3px
+}

@@ -1,0 +1,16 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h2>Bid on item</h2>
+
+    <form action="{% url 'bid' l_title.title %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input autofocus class="form-control" type="number" name="amt" placeholder="Bid Amount">
+        </div>
+		
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+
+{% endblock %}
