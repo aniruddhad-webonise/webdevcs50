@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Advance Search</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<style>
+			.ralign{
+					text-align:right;
+					display:block;
+					margin-right:1%;
+					margin-top:0.75%;
+					}
+			#d1{
+			color:blue;
+			margin-top:1%;
+			margin-left:2%;
+			}
+			#d2{
+			color:blue;
+			margin-top:2%;
+			margin-left: 3%;
+			}
+			#d3{
+			color:blue;
+			margin-top:1%;
+			margin-left: 3%;
+			}
+			#advsbtn{
+			margin-left: 30.5%;
+			}
+			.form-group{
+			margin-left: 3%;
+			margin-right: 60%;
+			}
+		</style>
+    </head>
+    <body>
+		<div class="ralign">
+			<a href="index.html">Home</a>
+		</div>
+		<div id="d1"><img src="g_search.png" alt="gsearch" width=5%></div>
+		<div id="d2"><h5>Advanced Search</h5></div>
+		
+		<div id="d3"><p>Find pages with...</p></div>
+		
+		<div>
+			<form action="https://google.com/search">
+				
+				<div class="form-group">
+					<label>all these words:</label>
+					<input name="as_q" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>this exact word or phrase:</label>
+					<input name="as_epq" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>any of these words:</label>
+					<input name="as_oq" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>none of these words:</label>
+					<input name="as_eq" type="text" class="form-control">
+				</div>
+			
+		
+				<div id="advsbtn">
+					<button type="submit" class="btn btn-primary">Advanced Search</button>
+				</div>
+			
+			</form>
+		</div>
+    </body>
+</html>

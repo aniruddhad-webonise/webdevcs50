@@ -1,0 +1,34 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Add Page
+{% endblock %}
+
+{% block body %}
+    
+	<h1>Enter your new entry here!</h1>
+	
+	<div class="wiki-entry-form">
+		<form action="{% url 'submit_confirm' %}" method="POST">
+			{% csrf_token %}
+			<div class="form-group"> 
+                <label>Entry name </label> 
+                {{ form1.t_name }} 
+            </div>
+			<div class="form-group"> 
+                <label>Entry Content </label> 
+                {{ form1.t_entry }} 
+            </div>
+			<button type="submit" class="btn btn-primary">Save Entry!</button>
+			<a class="btn btn-outline-success" href="/wiki/{{ entry }}" role="button">Visit Entry Page!</a>
+		</form>
+	</div>
+	
+	
+	
+{% endblock %}
+
+		
+
+
+		

@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{t_name}}
+{% endblock %}
+
+{% block body %}
+    <h1>Entered string is {{SS}}</h1>
+	
+	
+	<ul>
+        {% for search_list_result in search_list_results %}
+            <li><a href="/wiki/{{ search_list_result }}">{{ search_list_result }}</a></li>
+        {% endfor %}
+    </ul>
+
+    
+
+{% endblock %}

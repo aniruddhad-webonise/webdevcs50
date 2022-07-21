@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Image Search</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<style>
+			.center{
+					text-align:center;
+					display:block;
+					}
+			.ralign{
+					text-align:right;
+					display:block;
+					margin-right:1%;
+					margin-top:0.75%;
+					}
+			#input{
+				border-radius: 25px;
+				border: 2px solid blue;
+				padding: 20px;
+				width: 550px;
+				height: 5px;
+				margin-bottom: 1%;
+				}
+			#display{
+				margin-top:7%
+				}
+		</style>
+    </head>
+    <body>
+		<div class="ralign">
+			<a href="index.html">Home</a>
+		</div>
+		<div id="display">
+			<div class="center">
+				<img src="gimg_search.png" alt="gsearch" width=25%>
+			</div>
+			<div class="center">
+				<form action="https://www.google.com/images">
+					<input type="text" name="q" id="input">
+					<br><input type="submit" value="Image Search"></br>
+				</form>
+			</div>
+		</div>
+    </body>
+</html>
