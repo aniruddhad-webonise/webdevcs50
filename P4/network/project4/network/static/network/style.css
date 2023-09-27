@@ -23,6 +23,13 @@
 	padding:3px
 }
 
+.loginregform{
+	border:2px solid black;
+	margin: 40px;
+	width: 70%;
+	padding:15px;
+}
+
 .postbox{
 	border:2px solid black;
 	margin: 40px;
