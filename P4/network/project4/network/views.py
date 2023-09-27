@@ -12,6 +12,8 @@ from django.http import JsonResponse
 
 from .models import *
 
+from textblob import TextBlob
+
 
 def index(request):
 	
@@ -103,6 +105,20 @@ def newpost(request):
 		
 		post = Post(body=post_t, pic_url=post_imgurl, user=user)
 		post.save()
+
+		blob = TextBlob(post_t)
+		senti_s = blob.sentiment.polarity
+		subjectivity_score = blob.sentiment.subjectivity
+
+		if senti_s > 0:
+			senti_l = "Positive"
+		elif senti_s < 0:
+			senti_l = "Negative"
+		else:
+			senti_l = "Neutral"
+
+		senti = SentiScore(user=user, post_text=post_t, senti_score=senti_s, senti_label=senti_l, subjectivity_score=subjectivity_score)
+		senti.save()
 		
 		return HttpResponseRedirect(reverse("index")) 
 		

@@ -44,3 +44,19 @@ class Follow(models.Model):
 			"follower": self.follower,
 			"following": self.following            
         }
+	
+class SentiScore(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_senti")
+	post_text = models.CharField(max_length=5120)
+	senti_score = models.FloatField()
+	senti_label = models.CharField(max_length=2560)
+	subjectivity_score = models.FloatField()
+
+	def serialize(self):
+		return {
+			"user": self.user.username,
+			"post_text": self.post_text,
+			"senti_score": self.senti_score,
+			"senti_label": self.senti_label,
+			"subjectivity_score": self.subjectivity_score
+        }
