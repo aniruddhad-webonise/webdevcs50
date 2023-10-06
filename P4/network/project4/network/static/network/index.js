@@ -105,6 +105,10 @@ function post_list_view(post,currentusername,appendview){
 	const post_editlink = document.createElement('div');
 	post_editlink.className = 'post_editlink';
 	post_editlink.innerHTML = 'Edit';
+
+	const post_translate = document.createElement('div');
+	post_translate.className = 'post_translate';
+	post_translate.innerHTML = 'Translate';
 	
 	// Like display
 	const l_btn = document.createElement('button');
@@ -115,6 +119,29 @@ function post_list_view(post,currentusername,appendview){
 	u_btn.className = 'btn btn-sm btn-outline-danger unlike_button';
 	const l_disp = document.createElement('div');
 	l_disp.innerHTML = post.postlikecount + " Likes";
+
+	//Translate post
+	post_translate.addEventListener('click', () => {
+		console.log("Post is being translated");
+		
+		const translatedisp = document.createElement("div");
+
+		translate(post, translatedisp)
+		
+		
+		const removetranslate = document.createElement("button");
+		removetranslate.className = 'btn btn-outline-secondary removetranslate';
+		removetranslate.innerHTML = "Close";
+		
+		translatedisp.append(removetranslate);
+		post_info.append(translatedisp);
+		post_translate.style.display='none';
+		
+		removetranslate.addEventListener('click', () => {
+			translatedisp.innerHTML="";
+			post_translate.style.display='block';
+		});
+	});
 	
 	
 	// Edit post
@@ -207,6 +234,7 @@ function post_list_view(post,currentusername,appendview){
 	post_info.append(post_user);
 	post_info.append(post_time);
 	post_info.append(post_editlink);
+	post_info.append(post_translate);
 	post_info.append(post_body);
 	if (post.pic_url){
 		const post_img = document.createElement('img');
@@ -488,5 +516,16 @@ function edit(post,editarea){
 		body: JSON.stringify({
 		    post_newbody: editarea.value
 		})
+	});
+}
+
+function translate(post,translatedisp){
+	fetch(`/translatepost/${post.id}`)
+	.then(response => response.json())
+	.then(data => {
+		const translatearea = document.createElement("div");
+		translatearea.className = 'translatearea';
+		translatearea.innerHTML = data.translated_post_tohindi;
+		translatedisp.append(translatearea);
 	});
 }

@@ -13,6 +13,7 @@ from django.http import JsonResponse
 from .models import *
 
 from textblob import TextBlob
+from translate import Translator
 
 
 def index(request):
@@ -264,6 +265,17 @@ def editpost(request, postid):
 	post.save()
 	
 	return JsonResponse({"message": "Post edited successfully"}, status=201)
+
+def translatepost(request, postid):
+	post = Post.objects.all().get(id=postid)
+
+	post_txt = post.body
+
+	translator_to_hindi = Translator(to_lang="hi")
+	post_txt_tranlation_to_hindi = translator_to_hindi.translate(post_txt)
+
+	return JsonResponse({'translated_post_tohindi':post_txt_tranlation_to_hindi}, safe=False)
+
 	
 	
 	
